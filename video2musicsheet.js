@@ -36,7 +36,6 @@ var processVideo = function(video) {
     process.then(function(video) {
         // Callback mode
         video.fnExtractFrameToJPG('tmp/images', {
-            size: '640x180',
             every_n_seconds: 1,
             file_name: 'frame_%03d'
         }, function(error, files) {
@@ -95,7 +94,7 @@ var processImages = function(images) {
         Jimp.read(images[i])
             .then(image => {
                 // Traversing image y-axis upto 180 
-                for (var y = 20; y < 180; y += 20) {
+                for (var y = 5; y < 180; y += 5) {
                     var line = "";
                     for (var x = 7; x < 360; x += 7) {
                         var red = Jimp.intToRGBA(image.getPixelColor(x - 3, y)).r;
